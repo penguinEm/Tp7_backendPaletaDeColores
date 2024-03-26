@@ -85,11 +85,11 @@ export const borrarColorDb = async (req, res) => {
         .json({ mensaje: "No existe el color que trata de borrar" });
     }
     await Color.findByIdAndDelete(req.params.id);
-    res.status(200).json({ mensaje: "Color editado correctamente" });
+    res.status(200).json({ mensaje: "Color borrado correctamente" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      mensaje: "Error inesperado no se pudo editar",
+      mensaje: "Error inesperado no se pudo borrar, id invalido",
     });
   }
 };

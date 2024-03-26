@@ -9,5 +9,5 @@ const colorSchema = new Schema({
   },
 });
 
-const Color = mongoose.model("color", tareaSchema);
+const Color = mongoose.model("color", colorSchema);
 export default Color;
