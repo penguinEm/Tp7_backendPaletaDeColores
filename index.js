@@ -4,7 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import routerTareas from "./src/routes/tareas.routes.js";
+import routerColores from "./src/routes/colores.routes.js";
 import "./src/database/database.js"
 
 //! 1. CONFIGURAR UN PUERTO
@@ -25,4 +25,4 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //! 3. CONFIGURAR LAS RUTAS
 
-app.use("/api", routerTareas);
+app.use("/api", routerColores);
