@@ -1,12 +1,12 @@
-# Backend CRUD de Tareas
+# Backend CRUD para administrar Tarjetas de Colores
 
-Este proyecto consiste en un backend para la práctica de un CRUD de tareas. Utiliza Node.js con Express.js y MongoDB como base de datos para gestionar las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de tareas.
+Este proyecto consiste en un backend para la práctica de un CRUD de Colores. Utiliza Node.js con Express.js y MongoDB como base de datos para gestionar las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de tarjetas de colores.
 
 ## Demo
 
-Puedes ver una demostración del proyecto en el siguiente enlace: [Demo](https://lista-tareas-c76i.netlify.app/)
+Puedes ver una demostración del proyecto en el siguiente enlace: [Demo](https://paleta-colores-c76i.netlify.app/)
 
-![alt text](1.png)
+![alt text](<public/2 paleta.png>)
 
 ## Dependencias Utilizadas
 
@@ -29,8 +29,8 @@ npm install cors dotenv express express-validator mongoose morgan nodemon
 
 ## Repositorios
 
-- [Backend CRUD de Tareas](https://github.com/penguinEm/Tp7_backendListaDeTareas.git): Enlace al repositorio del backend.
-- [Frontend](https://github.com/penguinEm/tp6Ejercicio5.git): Enlace al repositorio del frontend.
+- [Backend CRUD de Colores](https://github.com/penguinEm/Tp7_backendPaletaDeColores.git): Enlace al repositorio del backend.
+- [Frontend](https://github.com/penguinEm/tp7_frontPaletaDeColores.git): Enlace al repositorio del frontend.
 
 ### Base de Datos MongoDB
 
