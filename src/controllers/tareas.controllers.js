@@ -4,7 +4,7 @@ import Color from "../database/model/modelColor.js";
 //! GET de todas las Colores
 export const listarColoresDb = async (req, res) => {
   try {
-    const listaColores = await Tarea.find();
+    const listaColores = await Color.find();
     res.status(200).json(listaColores);
   } catch (error) {
     console.error(error);
@@ -21,7 +21,7 @@ export const crearColorDb = async (req, res) => {
       return res.status(400).json({ errors: errors.array() });
     }
     //logica para crear
-    const colorNuevo = new Tarea(req.body);
+    const colorNuevo = new Color(req.body);
     await colorNuevo.save();
     res.status(201).json({
       mensaje: "El color fue creada exitosamente",
@@ -33,15 +33,15 @@ export const crearColorDb = async (req, res) => {
 };
 
 //! GET de 1 color buscada por id
-export const tareaBuscadaDb = async (req, res) => {
+export const colorBuscadoDb = async (req, res) => {
   try {
-    const tareaBuscada = await Tarea.findById(req.params.id);
-    if (tareaBuscada === null) {
+    const colorBuscado = await Color.findById(req.params.id);
+    if (colorBuscado === null) {
       return res
         .status(404)
-        .json({ mensaje: "No existe el producto con el id enviado" });
+        .json({ mensaje: "No existe el color con el id enviado" });
     }
-    res.status(200).json({ mensaje: tareaBuscada });
+    res.status(200).json({ mensaje: colorBuscado });
   } catch (error) {
     console.error(error);
     res
@@ -50,8 +50,8 @@ export const tareaBuscadaDb = async (req, res) => {
   }
 };
 
-//! PUT edit de 1 tarea por id
-export const editarTareaDb = async (req, res) => {
+//! PUT edit de 1 color por id
+export const editarColorDb = async (req, res) => {
   try {
     //validando con xpres
     const errors = validationResult(req);
@@ -59,37 +59,37 @@ export const editarTareaDb = async (req, res) => {
       return res.status(400).json({ errors: errors.array() });
     }
     //logica para editar por id
-    const tareaBuscadaDb = await Tarea.findById(req.params.id);
-    if (tareaBuscadaDb === null) {
+    const colorBuscadoDb = await Color.findById(req.params.id);
+    if (colorBuscadoDb === null) {
       return res
         .status(404)
-        .json({ mensaje: "No se encontro la tarea que trata de editar" });
+        .json({ mensaje: "No se encontro el id del color que trata de editar" });
     }
-    await Tarea.findByIdAndUpdate(req.params.id, req.body);
-    res.status(200).json({ mensaje: "Tarea editada correctamente" });
+    await Color.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({ mensaje: "Color editado correctamente" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      mensaje: "Error inesperado no se pudo editar la tarea",
+      mensaje: "Error inesperado no se pudo editar",
     });
   }
 };
 
-//! DELETE de 1 tarea por id
-export const borrarTareaDb = async (req, res) => {
+//! DELETE de 1 color por id
+export const borrarColorDb = async (req, res) => {
   try {
-    const tareaBuscadaDb = await Tarea.findById(req.params.id);
-    if (tareaBuscadaDb === null) {
+    const colorBuscadoDb = await Color.findById(req.params.id);
+    if (colorBuscadoDb === null) {
       return res
         .status(404)
-        .json({ mensaje: "No existe la tarea que trata de borrar" });
+        .json({ mensaje: "No existe el color que trata de borrar" });
     }
-    await Tarea.findByIdAndDelete(req.params.id);
-    res.status(200).json({ mensaje: "Tarea editada correctamente" });
+    await Color.findByIdAndDelete(req.params.id);
+    res.status(200).json({ mensaje: "Color editado correctamente" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      mensaje: "Error inesperado no se pudo editar la tarea",
+      mensaje: "Error inesperado no se pudo editar",
     });
   }
 };
