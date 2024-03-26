@@ -1,45 +1,47 @@
 import { Router } from "express";
 import {
-  borrarTareaDb,
-  crearTareaDb,
-  editarTareaDb,
-  listarTareasDb,
-  tareaBuscadaDb,
-} from "../controllers/tareas.controllers.js";
+  borrarColorDb,
+  colorBuscadoDb,
+  crearColorDb,
+  editarColorDb,
+  listarColoresDb,
+} from "../controllers/colores.controllers.js";
 import { check } from "express-validator";
 
 const router = Router();
 
 router
-  .route("/tareas")
-  .get(listarTareasDb)
+  .route("/colores")
+  .get(listarColoresDb)
   .post(
     [
-      check("nombreTarea")
+      check("nombreColor")
         .notEmpty()
-        .withMessage("Indicar el nombre de la tarea es obligatorio")
+        .withMessage("Indicar el nombre del color es obligatorio")
         .isLength({
           min: 3,
-          max: 30,
+          max: 15,
         })
-        .withMessage("El campo de tarea debe contener entre 3 y 30 caracteres"),
+        .withMessage("El campo del color debe contener entre 3 y 15 caracteres"),
     ],
-    crearTareaDb
+    crearColorDb
   );
 router
-  .route("/tareas/:id")
-  .get(tareaBuscadaDb)
-  .put([
-    check("nombreTarea")
-      .notEmpty()
-      .withMessage("Indicar el nombre de la tarea es obligatorio")
-      .isLength({
-        min: 3,
-        max: 30,
-      })
-      .withMessage("El campo de tarea debe contener entre 3 y 30 caracteres"),
-  ],editarTareaDb
-    )
-  .delete(borrarTareaDb);
+  .route("/colores/:id")
+  .get(colorBuscadoDb)
+  .put(
+    [
+      check("nombreColor")
+        .notEmpty()
+        .withMessage("Indicar el nombre del color es obligatorio")
+        .isLength({
+          min: 3,
+          max: 15,
+        })
+        .withMessage("El campo del color debe contener entre 3 y 15 caracteres"),
+    ],
+    editarColorDb
+  )
+  .delete(borrarColorDb);
 
 export default router;
